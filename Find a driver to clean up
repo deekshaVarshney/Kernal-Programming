@@ -1,0 +1,21 @@
+Find a driver to clean up
+
+The staging tree, in drivers/staging/ is full of drivers that are not quite up to kernel coding style, or that use deprecated API. Drivers get placed here in order to get cleaned up. Some drivers have a TODO file in their parent directory, that lists things that need to be done to it:
+
+find drivers/staging -name TODO
+
+You can either tackle one of those TODO items, or you can do a simple coding style cleanup.
+
+drivers/staging contains both drivers that are on their way into the kernel and those that are on their way out of the kernel. It would be better to avoid working on the latter. Some drivers that are on their way out of the kernel as of February 2015 are
+
+i2o
+line6
+media/parport
+media/tlg2300
+media/vino
+
+Running checkpatch.pl
+
+If you pick a driver in staging, you can run the script that checks whether a file conforms to kernel coding style:
+
+perl scripts/checkpatch.pl -f drivers/staging/android/* | less
