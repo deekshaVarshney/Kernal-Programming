@@ -38,6 +38,6 @@ clean:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
   
   
-  then use sudo insmod hello.ko -to install modules in the kernel
+  then use sudo insmod hello.ko -to insert modules in the kernel
   then dmesg -to see the message displayed on kernel
   then sudo rmmod hello.ko -to remove some module from kernel
