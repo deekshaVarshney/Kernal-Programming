@@ -1,0 +1,33 @@
+Handle with some care: the software repositories Backports and Partners
+8. There are two software repositories that are safe enough to enable them in your Ubuntu, but nevertheless have to be handled with some care: Backports and Partners.
+
+Definitely not a fatal matter, because these repositories pose an acceptable low risk. But this risk, although low and acceptable, is still worthy of some attention...
+
+Backports
+8.1. In Linux Mint 18, the "backport" repository is enabled by default, and it's best to leave it that way. You can trust that the repository maintainers won't put risky packages in it; Mint is very conservative and cautious in that respect.
+
+In Ubuntu, the software repository of "backports" is also enabled by default. But with a lowered (harmless) priority, so that you can only install software from it when you consciously choose to.
+
+Like this you can check whether this source is enabled in Ubuntu:
+
+- If not installed yet: first install Synaptic Package Manager by means of the application Software.
+
+- Click on the grey Ubuntu logo (Dash home).
+Query: synaptic
+Click on Synaptic Package Manager
+
+Settings - Software Sources - tab Updates
+
+You'll see this checked update source:
+Unsupported updates (xenial-backports).
+
+The "backports" source is much less risky than "proposed", because it holds software that's stable in itself. But this software hasn't been tested for your version of Ubuntu. Therefore it may still diminish the stability of (parts of) the system.
+
+Although this repository has been enabled, it has therefore been issued a low and harmless priority. My advice is: keep backports enabled in Ubuntu, but be cautious when using it.
+
+To check the priority of Backports you can run the following command in a terminal:
+apt-cache policy | grep backports
+
+Now you'll see that the priority of the Backports repository is pinned to 100 for everything except the translations (in a localized system). Other repositories (and the translations in Backports) have the default priority 500.
+
+This means that you have to explicitly choose to install the backport version of a package, if another version of that package also exists in a non-backports repository. The advantage of this is, that if a package is only available in Backports, you'll be able to install it without modifying anything else.
